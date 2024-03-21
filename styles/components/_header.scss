@@ -9,11 +9,12 @@ header {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1.6rem;
+        row-gap: 1.6rem;
+        margin: 1rem;
 
         .linha {
-            border-top: 1px black;
             width: 80%;
+            border-bottom: 1px solid black;
         }
 
         ul {
@@ -28,6 +29,11 @@ header {
                 text-decoration: none;
                 @include mixins.ff-fs-cl(variaveis.$ft-textos, 1rem, variaveis.$cor-primaria);
                 font-weight: 500;
+                transition: .3s;
+                &:hover{
+                    transform: scale(1.2);
+                    font-weight: 700;
+                }
             
             }
         }
@@ -56,13 +62,16 @@ header {
             .btn-main {
                 width: 280px;
                 height: 66px;
-                border-radius: 66px;
+                color: #fff;
                 border: none;
-                background-color: variaveis.$cor-secundaria;
-                color: #FFFFFF;
-                font-family: variaveis.$ft-textos;
-                font-weight: 400;
+                outline: none;
+                border-radius: 66px;
+                background: variaveis.$cor-default;
                 font-size: 1.3rem;
+                &:hover{
+                    background-color: variaveis.$cor-secundaria;
+                    transition: .5s;
+                }
             }
         }
 
