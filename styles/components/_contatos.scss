@@ -41,7 +41,10 @@
                 border-radius: 25px;
                 padding: 1rem;
                 border: none;
+                
+                
             }
+            
             .form-group{
                 width: 100%;
 
@@ -50,11 +53,12 @@
                 gap: .5rem;
                 label{
                     @extend .infos;
-                    font-weight: bold;
+                     font-weight: bold;
                 }
                 
                 textarea{
                     @extend input;
+                    resize: none;
                 }
             }
             .btn{
