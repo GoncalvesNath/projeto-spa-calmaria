@@ -45,15 +45,20 @@ header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-
+        @include mixins.responsivo('pequeno'){
+            flex-direction: column;
+        }
+        @include mixins.responsivo('medio'){
+            flex-direction: column;
+        }
+        
+        
         .textos-home {
             max-width: 464px;
 
             h1 {
-                font-size: 42px;
-                color: variaveis.$cor-primaria;
+                @include mixins.ff-fs-cl(variaveis.$ft-titulos, 2rem, variaveis.$cor-primaria);
                 margin-bottom: 2rem;
-                font-family: variaveis.$ft-titulos;
 
                 span {
                     color: variaveis.$cor-secundaria;
@@ -80,6 +85,12 @@ header {
 
             img {
                 width: 100%;
+                @include mixins.responsivo('pequeno') {
+                    width: 300px;
+                }
+                @include mixins.responsivo('medio') {
+                    width: 480px;
+                }
             }
         }
     }

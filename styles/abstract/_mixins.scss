@@ -1,9 +1,44 @@
-@mixin margem-central($width){
-margin: 0 auto;
-width: $width;
+@use './variaveis';
+
+@mixin margem-central($width) {
+    margin: 0 auto;
+    width: $width;
 }
-@mixin ff-fs-cl($f-family, $f-size, $f-color){
+
+@mixin ff-fs-cl($f-family, $f-size, $f-color) {
     font-family: $f-family;
     font-size: $f-size;
     color: $f-color;
+
+    @if $f-family ==variaveis.$ft-titulos {
+        font-weight: 400;
+    }
+
+    @media (max-width: 768px) {
+        font-size: calc($f-size/1.2);
+    }
+
+    @media (max-width: 420px) {
+        font-size: calc($f-size/1.6);
+    }
+}
+
+@mixin responsivo($media) {
+    @if $media =='pequeno' {
+        @media (max-width: 490px) {
+            @content;
+        }
+    }
+
+    @if $media =='medio' {
+        @media (min-width: 491px) and (max-width: 768px) {
+            @content;
+        }
+    }
+
+    @if $media =='grande' {
+        @media (min-width: 769px) {
+            @content;
+        }
+    }
 }
