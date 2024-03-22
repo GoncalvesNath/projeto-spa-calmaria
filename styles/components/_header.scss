@@ -3,7 +3,7 @@
 
 header {
     background: variaveis.$gradiente-primario;
-    padding: 2rem;
+    padding: 1rem;
 
     nav {
         display: flex;
@@ -45,10 +45,10 @@ header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        @include mixins.responsivo('pequeno'){
+        @include mixins.responsivo('celular'){
             flex-direction: column;
         }
-        @include mixins.responsivo('medio'){
+        @include mixins.responsivo('tablet'){
             flex-direction: column;
         }
         
