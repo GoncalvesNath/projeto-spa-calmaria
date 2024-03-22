@@ -243,6 +243,9 @@ header #home .img-home img {
 #contatos .contatos-form .inputs .form-group label {
   font-weight: bold;
 }
+#contatos .contatos-form .inputs .form-group textarea {
+  resize: none;
+}
 #contatos .contatos-form .inputs .btn {
   background: #CAD4FA;
   margin-top: 2rem;
