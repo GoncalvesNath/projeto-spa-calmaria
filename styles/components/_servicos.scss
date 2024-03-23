@@ -2,10 +2,19 @@
 @use '../abstract/mixins';
 
 #servico {
+    
     background: variaveis.$gradiente-primario;
     padding: 5rem 0;
     .cards {
         @include mixins.margem-central(80%);
+        @include mixins.responsivo('celular'){
+            display: flex;
+            flex-direction: column;
+        }
+        @include mixins.responsivo('tablet'){
+            display: flex;
+            flex-direction: column;
+        }
         display: flex;
         gap: 1.5rem;
         .card{
