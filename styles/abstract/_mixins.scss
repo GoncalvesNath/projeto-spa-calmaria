@@ -24,19 +24,19 @@
 }
 
 @mixin responsivo($media) {
-    @if $media =='pequeno' {
+    @if $media =='celular' {
         @media (max-width: 490px) {
             @content;
         }
     }
 
-    @if $media =='medio' {
+    @if $media =='tablet' {
         @media (min-width: 491px) and (max-width: 768px) {
             @content;
         }
     }
 
-    @if $media =='grande' {
+    @if $media =='desktop' {
         @media (min-width: 769px) {
             @content;
         }

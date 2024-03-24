@@ -85,10 +85,10 @@ header {
 
             img {
                 width: 100%;
-                @include mixins.responsivo('pequeno') {
+                @include mixins.responsivo('celular') {
                     width: 300px;
                 }
-                @include mixins.responsivo('medio') {
+                @include mixins.responsivo('tablet') {
                     width: 480px;
                 }
             }
