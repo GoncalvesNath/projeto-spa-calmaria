@@ -9,35 +9,23 @@
     font-family: $f-family;
     font-size: $f-size;
     color: $f-color;
-
-    @if $f-family ==variaveis.$ft-titulos {
-        font-weight: 400;
-    }
-
-    @media (max-width: 768px) {
-        font-size: calc($f-size/1.2);
-    }
-
-    @media (max-width: 420px) {
-        font-size: calc($f-size/1.6);
-    }
 }
 
 @mixin responsivo($media) {
     @if $media =='celular' {
-        @media (max-width: 490px) {
+        @media (max-width: 600px) {
             @content;
         }
     }
 
     @if $media =='tablet' {
-        @media (min-width: 491px) and (max-width: 768px) {
+        @media (min-width: 601px) and (max-width: 1024px) {
             @content;
         }
     }
 
     @if $media =='desktop' {
-        @media (min-width: 769px) {
+        @media (min-width: 1025px) {
             @content;
         }
     }
