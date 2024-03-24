@@ -3,50 +3,90 @@
 
 #desconto {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    margin: 64px 0;
     text-align: center;
-    margin: 64px 0 64px 0;
-    .desconto-form{
-        z-index: 25;
-    }
-    img{
-        @include mixins.responsivo ('pequeno'){
-            width: 102.87px;
 
-        }
-        @include mixins.responsivo ('medio'){
-            width: 103px;
-
-        }
+    @include mixins.responsivo ('celular') {
+        flex-direction: column;
     }
-    h4{
+
+    h4 {
         @include mixins.ff-fs-cl(variaveis.$ft-titulos, 1.6rem, variaveis.$cor-primaria);
     }
-    p{
+
+    p {
         @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, variaveis.$cor-primaria);
     }
-    .input-btn{
-        $largura-input: 790px;
-        width: $largura-input;
-        height: 65px;
+
+    img {
+        width: 15%;
+        margin-top: 3.5%;
+
+
+        @include mixins.responsivo ('celular') {
+            transform: rotate(90deg);
+            width: 25%;
+        }
+
+    }
+
+    h4 {
+        @include mixins.ff-fs-cl(variaveis.$ft-titulos, 1.6rem, variaveis.$cor-primaria);
+    }
+
+    p {
+        @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, variaveis.$cor-primaria);
+    }
+
+    .input-btn {
+        width: 70%;
+        min-height: 65px;
         border: 1px solid variaveis.$cor-secundaria;
         border-radius: 65px;
         margin: 0 auto;
         display: inline-flex;
+
+        @include mixins.responsivo ('celular') {
+            flex-direction: column;
+            align-items: center;
+            border: none;
+            justify-content: center;
+            gap: 8px;
+        }
+
         input {
             @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, variaveis.$cor-primaria);
-            width: calc($largura-input * 0.65);
+            width: 65%;
             border: none;
-            outline: none; /*remove a borda preta ao clicar no campo/botão*/
+            outline: none;
             margin-left: 2rem;
+
+            @include mixins.responsivo ('celular') {
+                width: 90%;
+                min-height: 65px;
+                border: 1px solid variaveis.$cor-secundaria;
+                border-radius: 65px;
+                text-align: center;
+                margin: 0 auto;
+            }
         }
+
         button {
-            @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, #fff);
-            width: calc($largura-input * 0.35);
+            @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, white);
+            width: 35%;
             background: variaveis.$cor-secundaria;
             border-radius: 0 65px 65px 0;
             border: none;
+
+            @include mixins.responsivo ('celular') {
+                width: 80%;
+                border-radius: 65px;
+                min-height: 65px;
+
+            }
         }
+
     }
 }
