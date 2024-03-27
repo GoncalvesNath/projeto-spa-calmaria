@@ -1,79 +1,141 @@
 @use '../abstract/variaveis';
 @use '../abstract/mixins';
 
-#contatos{
+#contatos {
     @include mixins.margem-central(80%);
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    .contatos-imgs{
-        max-width: 50%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        justify-content: space-around;
-        img{
+    // display: flex;
+    // justify-content: space-between;
+    // gap: 2rem;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+
+    @include mixins.responsivo('desktop') {
+        column-gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contatos-imgs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto;
+        grid-column-gap: 16px;
+        grid-row-gap: 16px;
+        justify-items: center;
+        width: 100%;
+
+        img:nth-child(1) {
             width: 100%;
-            &:nth-child(n + 2){
-                width: 48%;
+            justify-self: center;
+            max-width: 589px;
+            grid-area: 1 / 1 / 2 / 3;
+        
+            @include mixins.responsivo('tablet') {
+                max-width: 1000px;
+                min-width: 648px;
+            }
+
+            @include mixins.responsivo('celular') {
+                min-width: 328px;
             }
         }
+
+        .secondary-imgs {
+            width: 100%;
+            max-width: 375px;
+
+            @include mixins.responsivo('tablet') {
+                min-width: 312px;
+            }
+
+            @include mixins.responsivo('celular') {
+                min-width: 158px;
+            }
+        }
+
+        img:nth-child(2) {
+            @extend .secondary-imgs;
+            grid-area: 2 / 1 / 3 / 2;
+        }
+        
+        img:nth-child(3) {
+            @extend .secondary-imgs;
+            grid-area: 2 / 2 / 3 / 3;
+        }
+
     }
-    .contatos-form{
-        max-width: 50%;
-        background: variaveis.$gradiente-primario;
-        padding: 2rem 3rem;
-        border-radius: 2rem;
-        .titulo{
-            @include mixins.ff-fs-cl(variaveis.$ft-titulos, 1.9rem, variaveis.$cor-secundaria);
+}
+
+.contatos-form {
+    background: variaveis.$gradiente-primario;
+    padding: 2rem 3rem;
+    border-radius: 2rem;
+
+    @include mixins.responsivo ('tablet') {
+        grid-area: 3 / 1 / 4 / 3; // Ocupa duas colunas na terceira linha
+        justify-content: center
+    }
+
+    @include mixins.responsivo ('celular') {
+        grid-area: 3 / 1 / 4 / 3; // Ocupa duas colunas na terceira linha
+        justify-content: center
+    }
+
+
+    .titulo {
+        @include mixins.ff-fs-cl(variaveis.$ft-titulos, 1.9rem, variaveis.$cor-secundaria);
+    }
+
+    .infos {
+        @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, variaveis.$cor-primaria);
+    }
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        align-self: stretch;
+
+        input {
+            border-radius: 25px;
+            padding: 1rem;
+            border: none;
+
         }
-        .infos{
-            @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, variaveis.$cor-primaria);
-        }
-        .inputs{
+
+        .form-group {
+            width: 100%;
+
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            gap: 1.5rem;
-            align-self: stretch;
-            input{
-                border-radius: 25px;
-                padding: 1rem;
-                border: none;
-                
-                
-            }
-            
-            .form-group{
-                width: 100%;
+            gap: .5rem;
 
-                display: flex;
-                flex-direction: column;
-                gap: .5rem;
-                label{
-                    @extend .infos;
-                     font-weight: bold;
-                }
-                
-                textarea{
-                    @extend input;
-                    resize: none
-                }
+            label {
+                @extend .infos;
+                font-weight: bold;
             }
-            .btn{
+
+            textarea {
                 @extend input;
-                background: variaveis.$cor-default;
-                margin-top: 2rem;
-                color: #fff;
-                font-size: 1rem;
-                width: 100%;
-                transition: .3s;
-                &:hover{
-                    background: variaveis.$cor-secundaria;
-                }
+                resize: none
             }
         }
 
+        .btn {
+            @extend input;
+            background: variaveis.$cor-default;
+            margin-top: 2rem;
+            color: #fff;
+            font-size: 1rem;
+            width: 100%;
+            transition: .3s;
+
+            &:hover {
+                background: variaveis.$cor-secundaria;
+            }
+        }
     }
+
 }

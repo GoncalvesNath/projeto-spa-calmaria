@@ -3,6 +3,7 @@
 
 #nosso-espaco {
     @include mixins.margem-central(80%);
+
     .detalhes {
         width: 100%;
         display: inline-flex;
@@ -14,6 +15,7 @@
         @include mixins.responsivo ('tablet') {
             flex-direction: column
         }
+
         @include mixins.responsivo ('celular') {
             flex-direction: column
         }
@@ -21,52 +23,78 @@
         .imgs-espaco {
             max-width: 500px;
         }
-        .img-unica{
+
+        .img-unica {
             @include mixins.responsivo ('tablet') {
                 width: fit-content;
-                max-width: 6488px;
-                max-height: 320px;  
+                max-width: 648px;
+                max-height: 320px;
             }
+
             @include mixins.responsivo ('celular') {
                 width: fit-content;
                 max-width: 328px;
                 max-height: 320px;
             }
         }
+
         .img-dupla {
+
             @include mixins.responsivo ('tablet') {
-                width: 80%;
+                width: 100%;
+                height: auto;
+                max-width: calc(50% - 12px);
+                /* Calcula a largura máxima das imagens considerando o espaço */
+                flex: 1 1 auto;
+                /* Ajuste responsivo */
                 gap: 24px;
             }
+
             @include mixins.responsivo ('celular') {
-                
+                width: 100%;
+                height: auto;
+                max-width: calc(50% - 12px);
+                /* Calcula a largura máxima das imagens considerando o espaço */
+                flex: 1 1 auto;
+                /* Ajuste responsivo */
+                gap: 24px;
             }
 
         }
+
         .espaco-textos {
             @extend .imgs-espaco;
-            .titulo{
+
+            .titulo {
                 @include mixins.ff-fs-cl(variaveis.$ft-titulos, 1.8rem, variaveis.$cor-secundaria);
                 font-weight: 500;
+
                 @include mixins.responsivo('celular') {
                     flex-direction: column;
                 }
+
                 @include mixins.responsivo('tablet') {
                     flex-direction: column;
                 }
             }
-            .infos{
+
+            .infos {
                 @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, variaveis.$cor-primaria);
             }
-            .separador{
+
+            .separador {
                 width: 100%;
             }
         }
-        /*parent selector*/&:nth-child(2){
+
+        /*parent selector*/
+        &:nth-child(2) {
             flex-direction: row-reverse;
+
             @include mixins.responsivo('tablet') {
                 flex-direction: column-reverse;
             }
+
             @include mixins.responsivo('celular') {
                 flex-direction: column-reverse;
             }

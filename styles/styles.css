@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   margin: 0;
   padding: 0;
@@ -21,6 +22,7 @@ header nav .linha {
 }
 header nav ul {
   display: inline-flex;
+  padding-inline-start: 0;
   gap: 2rem;
 }
 header nav ul li {
@@ -129,7 +131,7 @@ header #home .img-home img {
   #nosso-espaco .detalhes .img-unica {
     width: -moz-fit-content;
     width: fit-content;
-    max-width: 6488px;
+    max-width: 648px;
     max-height: 320px;
   }
 }
@@ -143,7 +145,23 @@ header #home .img-home img {
 }
 @media (min-width: 601px) and (max-width: 1024px) {
   #nosso-espaco .detalhes .img-dupla {
-    width: 80%;
+    width: 100%;
+    height: auto;
+    max-width: calc(50% - 12px);
+    /* Calcula a largura máxima das imagens considerando o espaço */
+    flex: 1 1 auto;
+    /* Ajuste responsivo */
+    gap: 24px;
+  }
+}
+@media (max-width: 600px) {
+  #nosso-espaco .detalhes .img-dupla {
+    width: 100%;
+    height: auto;
+    max-width: calc(50% - 12px);
+    /* Calcula a largura máxima das imagens considerando o espaço */
+    flex: 1 1 auto;
+    /* Ajuste responsivo */
     gap: 24px;
   }
 }
@@ -323,65 +341,116 @@ header #home .img-home img {
 #contatos {
   margin: 0 auto;
   width: 80%;
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+}
+@media (min-width: 1025px) {
+  #contatos {
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 #contatos .contatos-imgs {
-  max-width: 50%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: space-around;
-}
-#contatos .contatos-imgs img {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  justify-items: center;
   width: 100%;
 }
-#contatos .contatos-imgs img:nth-child(n+2) {
-  width: 48%;
+#contatos .contatos-imgs img:nth-child(1) {
+  width: 100%;
+  justify-self: center;
+  max-width: 589px;
+  grid-area: 1/1/2/3;
 }
-#contatos .contatos-form {
-  max-width: 50%;
+@media (min-width: 601px) and (max-width: 1024px) {
+  #contatos .contatos-imgs img:nth-child(1) {
+    max-width: 1000px;
+    min-width: 648px;
+  }
+}
+@media (max-width: 600px) {
+  #contatos .contatos-imgs img:nth-child(1) {
+    min-width: 328px;
+  }
+}
+#contatos .contatos-imgs .secondary-imgs, #contatos .contatos-imgs img:nth-child(3), #contatos .contatos-imgs img:nth-child(2) {
+  width: 100%;
+  max-width: 375px;
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  #contatos .contatos-imgs .secondary-imgs, #contatos .contatos-imgs img:nth-child(3), #contatos .contatos-imgs img:nth-child(2) {
+    min-width: 312px;
+  }
+}
+@media (max-width: 600px) {
+  #contatos .contatos-imgs .secondary-imgs, #contatos .contatos-imgs img:nth-child(3), #contatos .contatos-imgs img:nth-child(2) {
+    min-width: 158px;
+  }
+}
+#contatos .contatos-imgs img:nth-child(2) {
+  grid-area: 2/1/3/2;
+}
+#contatos .contatos-imgs img:nth-child(3) {
+  grid-area: 2/2/3/3;
+}
+
+.contatos-form {
   background: linear-gradient(180deg, #E8F5C8 0%, #FFFFFF 96.87%);
   padding: 2rem 3rem;
   border-radius: 2rem;
 }
-#contatos .contatos-form .titulo {
+@media (min-width: 601px) and (max-width: 1024px) {
+  .contatos-form {
+    grid-area: 3/1/4/3;
+    justify-content: center;
+  }
+}
+@media (max-width: 600px) {
+  .contatos-form {
+    grid-area: 3/1/4/3;
+    justify-content: center;
+  }
+}
+.contatos-form .titulo {
   font-family: "Krona One", sans-serif;
   font-size: 1.9rem;
   color: #4e75ff;
 }
-#contatos .contatos-form .infos, #contatos .contatos-form .inputs .form-group label {
+.contatos-form .infos, .contatos-form .inputs .form-group label {
   font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
   color: #0C0421;
 }
-#contatos .contatos-form .inputs {
+.contatos-form .inputs {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1.5rem;
   align-self: stretch;
 }
-#contatos .contatos-form .inputs input, #contatos .contatos-form .inputs .btn, #contatos .contatos-form .inputs .form-group textarea {
+.contatos-form .inputs input, .contatos-form .inputs .btn, .contatos-form .inputs .form-group textarea {
   border-radius: 25px;
   padding: 1rem;
   border: none;
 }
-#contatos .contatos-form .inputs .form-group {
+.contatos-form .inputs .form-group {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-#contatos .contatos-form .inputs .form-group label {
+.contatos-form .inputs .form-group label {
   font-weight: bold;
 }
-#contatos .contatos-form .inputs .form-group textarea {
+.contatos-form .inputs .form-group textarea {
   resize: none;
 }
-#contatos .contatos-form .inputs .btn {
+.contatos-form .inputs .btn {
   background: #CAD4FA;
   margin-top: 2rem;
   color: #fff;
@@ -389,7 +458,7 @@ header #home .img-home img {
   width: 100%;
   transition: 0.3s;
 }
-#contatos .contatos-form .inputs .btn:hover {
+.contatos-form .inputs .btn:hover {
   background: #4e75ff;
 }
 
