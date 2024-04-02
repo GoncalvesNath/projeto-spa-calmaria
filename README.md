@@ -23,7 +23,7 @@ No terminal, clone o projeto:
 git clone https://github.com/GoncalvesNath/projeto-spa-calmaria.git
 ```
 
-Foi utilizada a IDE VSCode e, para que o projeto rode corretamente nela, é necessário instalar a extensão <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass">Live SASS Compiler</a>.
+Aqui eu utilizei o VSCode e, para que o projeto rode corretamente nele, é necessário instalar a extensão <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass">Live SASS Compiler</a>.
 Após a instalação clique no botão "Watch Sass" ao final da página 
 ![watch sass](https://github.com/GoncalvesNath/projeto-spa-calmaria/assets/158405216/4d3bad74-e275-4d57-82b3-b74256af4bfe)
 
